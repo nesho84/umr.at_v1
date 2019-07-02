@@ -1,0 +1,7 @@
+DirectoryIndex kontakt.php
+
+Options +FollowSymLinks
+Options +Indexes
+RewriteEngine On
+
+RewriteRule ^Mailer$ mailer.php [NC,L]

@@ -1,0 +1,11 @@
+RewriteEngine On
+
+        RewriteBase /
+
+        RewriteRule ^home/?$ index2.php [NC]
+		
+		 RewriteRule ^sitemap/?$ sitemap.php [NC]
+		 
+		 RewriteRule ^personal/?$ UMR_Personalmanagement.pdf [NC]
+		 
+		 RewriteRule ^ISO-9001/?$ ISO-9001.pdf [NC]

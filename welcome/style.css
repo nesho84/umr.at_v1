@@ -1,0 +1,126 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #999;
+	font-size: 12px;
+	line-height: 1.5em; 
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background: url(../_images/url6.png) repeat;
+	background-position: center;
+}
+
+
+p, li {
+	font: 1.2em/1.8em Tahoma, sans-serif;
+	margin-bottom: 10px;
+}
+
+h1 {
+	font: 2.0em Tahoma, sans-serif;
+	color: white;
+	height: 0px;
+}
+
+h2 {
+	font: 1.8em Tahoma, sans-serif;
+	color: green;
+	margin-bottom: 10px;
+}
+
+ul {
+	margin-left: 25px;
+}
+
+img {
+	border: none;
+}
+
+#page-wrap {
+	min-width: 800px;
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 50px 0;
+	border: 0px solid black;
+	}
+	#page-wrap #inside {
+		width: 960px;
+		height: 600px;
+		margin: 0 auto;
+		background: #f8f8f8;
+		box-shadow:0px 0px 20px 0px #ccc;
+		border: 1px solid #ccc;
+	}
+	
+#main-content {
+	overflow: hidden;
+	height: 290px;
+	margin-top: 0px;
+	padding-top:0px;
+	background:#D8D8D8;
+	text-align: center;
+	border: 0px solid black; 
+} 
+
+.xbox1
+  {
+  width:347px;
+  height:145px;
+  margin:35px 30px;
+  float:left;
+  background:#B8B8B8 url(images/reinigung.png);
+  border:1px solid #fff;
+  box-shadow:0px 0px 10px 0px #ffffff;
+  opacity: 0.6;
+  }
+  .xbox1:hover { opacity:0.9; box-shadow:0 0px 10px 3px #888888; }
+  .xbox1:hover p { color:#b8b8b8; }
+  .xbox1 p
+  {
+  padding:20px;
+  font-family:"Arial Black", Gadget, sans-serif;
+  font-size:18px; 
+  font-weight:bolder;
+  color:#ffffff;
+  }
+  
+.xbox2
+  {
+  width:347px;
+  height:145px;
+  margin:35px 30px;
+  float:right;
+  background:#B8B8B8 url(images/personal.png) no-repeat;
+  border:1px solid #fff;
+  box-shadow:0px 0px 10px 0px #ffffff;
+  opacity: 0.6;
+  }
+  .xbox2:hover { opacity:0.9; box-shadow:0 0px 10px 3px #888888; }
+  .xbox2:hover p { color:#000; }
+  
+
+.xbox2 p
+  {
+  padding:20px;
+  font-family:"Arial Black", Gadget, sans-serif;
+  font-size:18px; 
+  font-weight:bolder;
+  color:#fff;
+  }
+  
+  .impressum
+  {
+  color:#b8b8b8;
+  
+  }
+   .impressum:hover
+  {
+  color:#000;
+  text-decoration:none;
+  box-shadow:0 0px 1px 1px #888888;
+  padding:2px;
+  }

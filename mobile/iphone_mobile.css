@@ -1,0 +1,41 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media handheld, only screen and (max-device-width: 319px)
+{
+
+		#page-wrapp {
+		margin:0 auto;
+		padding:0;
+		text-align: center;
+		background:#D8D8D8;
+		}
+		
+		#header {
+		text-align: center;
+		}
+
+		#header h1 {
+		font-size: 140%;
+		}
+
+		#main-content {
+		width: auto%;
+		text-align:center;
+		}
+		
+		.buttons a img{
+		max-width:320px;
+		}
+		
+		.impressum
+		{
+		color:#00a59c;
+		}
+		.impressum:hover
+		{
+		color:#000;
+		text-decoration:none;
+		box-shadow:0 0px 1px 1px #888888;
+		padding:2px;
+		}
+
+}

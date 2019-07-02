@@ -1,0 +1,89 @@
+.question {
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+fieldset {
+	border: solid 1px #cccccf;
+	width: 415px;
+	padding: 0 10px 10px 10px;
+	margin-bottom: 15px;
+}
+
+legend {
+	color: #009cff;
+	background: #f3f7fe;
+	border: 1px outset #ccccff;
+	padding: 4px 4px 4px 4px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.currentResults {
+	font-size: 8pt;
+}
+
+.vote {
+	margin-top: 4px;
+	padding: 0 0 0 0;
+}
+
+.vote p {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.errorMessage {
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	font-size: 10pt;
+	color: #ff0000;
+}
+
+.credit {
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	color: #696969;
+}
+
+input.submit {
+	color: #009cff;
+	padding: 5px;
+	background: #f3f7fe;
+	border: 1px outset #cccccc;
+}
+
+/* Default for the poll bars */
+
+.pollBar {
+	height: 15px;
+	background: #ff0000;
+	border: 1px solid #000000;
+}
+
+/* Poll bar ids are sequential and one-indexed */
+
+#pollBar1 {
+	background: #00ff00;
+}
+
+#pollBar2 {
+	background: #ff0000;
+}
+
+#pollBar3 {
+	background: #0000ff;
+}
+
+#pollBar4 {
+	background: #ffff00;
+}
+
+#pollBar5 {
+	background: #00ffff;
+}
+
+#pollBar6 {
+	background: #ff00ff;
+}
