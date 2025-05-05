@@ -1,26 +1,19 @@
 <?php
 include '../../../_library/dbconnect.php';
 
-if(isset($_POST['Clear']))
+if (isset($_POST['Clear'])) {
 
-{
+   $action = ($_POST['action']);
 
-   $action=($_POST['action']); 
+   $clearmessages = "TRUNCATE TABLE chatmessages";
 
-   $clearmessages="TRUNCATE TABLE chatmessages";
-
-   mysql_query($clearmessages) or die("Could not clear History");
+   mysqli_query($clearmessages) or die("Could not clear History");
 
    print "History Cleared.";
    print "<br /><a href='index.php'>back</a>";
+} else {
 
-}
-
-else
-
-{
-
-   $action=$_GET['action'];
+   $action = $_GET['action'];
 
    print "<form action='clearhistory.php' method='post'>";
 
@@ -29,7 +22,4 @@ else
    print "<input type='hidden' name='action' value='$action'>";
 
    print "<input type='submit' name='Clear' value='Clear'></form>";
-
 }
-
-?>

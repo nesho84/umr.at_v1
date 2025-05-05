@@ -1,11 +1,12 @@
+Options -Indexes
 RewriteEngine On
 
-        RewriteBase /
+# Skip rewriting if file or directory exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 
-        RewriteRule ^home/?$ index2.php [NC]
-		
-		 RewriteRule ^sitemap/?$ sitemap.php [NC]
-		 
-		 RewriteRule ^personal/?$ UMR_Personalmanagement.pdf [NC]
-		 
-		 RewriteRule ^ISO-9001/?$ ISO-9001.pdf [NC]
+RewriteRule ^sitemap/$ sitemap.php [L,QSA]
+
+RewriteRule ^personal/$ UMR_Personalmanagement.pdf [L,QSA]
+
+RewriteRule ^ISO-9001/$ ISO-9001.pdf [L,QSA]

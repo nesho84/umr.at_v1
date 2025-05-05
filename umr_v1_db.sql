@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2019 at 08:22 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Generation Time: May 06, 2025 at 12:14 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `d0147235`
+-- Database: `umr_v1_db`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +33,7 @@ CREATE TABLE `articles` (
   `image` varchar(40) NOT NULL,
   `contents` text NOT NULL,
   `subcategory` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -46,7 +45,7 @@ CREATE TABLE `category` (
   `cat_id` int(11) NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `description` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `category`
@@ -67,7 +66,15 @@ CREATE TABLE `chatmessages` (
   `IP` varchar(255) NOT NULL,
   `postime` bigint(20) NOT NULL,
   `message` tinytext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `chatmessages`
+--
+
+INSERT INTO `chatmessages` (`ID`, `name`, `IP`, `postime`, `message`) VALUES
+(4, 'admin', '::1', 1746481410, 'test'),
+(5, 'admin', '::1', 1746481414, 'test');
 
 -- --------------------------------------------------------
 
@@ -80,7 +87,7 @@ CREATE TABLE `images` (
   `image` varchar(40) NOT NULL,
   `description` text NOT NULL,
   `subcategory` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -91,7 +98,7 @@ CREATE TABLE `images` (
 CREATE TABLE `ipbans` (
   `IPID` bigint(20) NOT NULL,
   `IP` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -105,7 +112,7 @@ CREATE TABLE `links` (
   `content` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
   `subcategory` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -117,15 +124,16 @@ CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `user` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`id`, `user`, `password`) VALUES
-(1, 'admin', '123456'),
-(3, 'nesho', '123456');
+(1, 'admin', '010203'),
+(3, 'nesho', '010203'),
+(9, 'test', '010203');
 
 -- --------------------------------------------------------
 
@@ -137,7 +145,14 @@ CREATE TABLE `maincategory` (
   `cat_id` int(11) NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `description` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `maincategory`
+--
+
+INSERT INTO `maincategory` (`cat_id`, `cat_name`, `description`) VALUES
+(11, 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -153,7 +168,14 @@ CREATE TABLE `news` (
   `link` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
   `subcategory` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `image`, `content`, `link`, `date`, `subcategory`) VALUES
+(31, 'test', 'albania.png', 'testetset', 'http://test.com', '2025-05-05 23:56:06', 'test');
 
 -- --------------------------------------------------------
 
@@ -166,7 +188,7 @@ CREATE TABLE `subcategory` (
   `cat_name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `maincategory_name` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
@@ -252,7 +274,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `chatmessages`
 --
 ALTER TABLE `chatmessages`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -276,19 +298,19 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `maincategory`
 --
 ALTER TABLE `maincategory`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `subcategory`

@@ -1,50 +1,63 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
+// Start session if not started
+if (session_status() === PHP_SESSION_NONE) {
+  ob_start();
+  session_start();
+}
 
 //connect to database
-require_once 'dbconnect.php';
-
-//Define Website Name
-define('WEB_NAME', '<a href=http://localhost>umr.at</a>');
+require_once __DIR__ . '/dbconnect.php';
+/*
+	Configuration
+*/
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+ini_set("log_errors", TRUE);
+ini_set("error_log", dirname(__DIR__) . "/logs/server.log");
 
 // Variables to include and upload files
-$thisFile = str_replace('\\', '/', __FILE__);
-$docRoot = $_SERVER['DOCUMENT_ROOT']. '';
-$admRoot = $_SERVER['DOCUMENT_ROOT']. '/admin/';
+$siteRoot = $_SERVER['DOCUMENT_ROOT'] . '/umr.at_v1/';
+$admRoot = $_SERVER['DOCUMENT_ROOT'] . '/admin/';
 
-// define paths
-$webRoot  = str_replace(array($docRoot, '/_library/config.php'), '', $thisFile);
-$srvRoot  = str_replace('/_library/config.php', '', $thisFile);
+defined('SITE_URL')
+  or define('SITE_URL', 'http://localhost/umr.at_v1');
 
-//define('ABSPATH', dirname(__FILE__) . '/');
-define('SITE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/'); //Apsolute site path
-define('ADM_URL', 'http://'.$_SERVER['HTTP_HOST'].'/admin/');
-define('IMAGE_DIR', 'http://'.$_SERVER['HTTP_HOST'].'/_images/');
-define('STYLE_DIR', SITE_URL . 'styles');
-define('UPLOAD_DIR', $docRoot); //Upload Dir
+defined('ADM_URL')
+  or define('ADM_URL', SITE_URL . '/admin/');
 
-//SECURE $_GET $_POST VARIABLES 
-if(!get_magic_quotes_gpc())
-{
-  $_GET = array_map('mysqli_real_escape_string', $_GET); 
+defined('IMAGE_URL')
+  or define('IMAGE_URL', SITE_URL . '/_images');
 
-  $_POST = array_map('mysqli_real_escape_string', $_POST); 
+defined('STYLE_URL')
+  or define('STYLE_URL', SITE_URL . '/_css');
 
-  //$_COOKIE = array_map('mysqli_real_escape_string', $_COOKIE);
-}
-else
-{  
-   $_GET = array_map('stripslashes', $_GET); 
+defined('UPLOAD_DIR')
+  or define('UPLOAD_DIR', $siteRoot); //Upload Dir
 
-   $_POST = array_map('stripslashes', $_POST); 
+//Define Website Name
+defined('WEB_NAME')
+  or define('WEB_NAME', '<a href=http://localhost>umr.at_v1</a>');
 
-   $_COOKIE = array_map('stripslashes', $_COOKIE);
+//SECURE $_GET $_POST VARIABLES
+// if(!get_magic_quotes_gpc())
+// {
+//   $_GET = array_map('mysqli_real_escape_string', $_GET);
 
-   $_GET = array_map('mysqli_real_escape_string', $_GET); 
+//   $_POST = array_map('mysqli_real_escape_string', $_POST);
 
-   $_POST = array_map('mysqli_real_escape_string', $_POST); 
+//   //$_COOKIE = array_map('mysqli_real_escape_string', $_COOKIE);
+// }
+// else
+// {
+//    $_GET = array_map('stripslashes', $_GET);
 
-   $_COOKIE = array_map('mysqli_real_escape_string', $_COOKIE);
-}
-?>
+//    $_POST = array_map('stripslashes', $_POST);
+
+//    $_COOKIE = array_map('stripslashes', $_COOKIE);
+
+//    $_GET = array_map('mysqli_real_escape_string', $_GET);
+
+//    $_POST = array_map('mysqli_real_escape_string', $_POST);
+
+//    $_COOKIE = array_map('mysqli_real_escape_string', $_COOKIE);
+// }

@@ -1,28 +1,19 @@
 <?php
 include '../../../_library/dbconnect.php';
 
-if(isset($_POST['submit']))
+if (isset($_POST['submit'])) {
 
-{
+   $ID = $_POST['ID'];
 
-   $ID=$_POST['ID']; 
+   $delmessage = "Delete from chatmessages where ID='$ID'";
 
-   $delmessage="Delete from chatmessages where ID='$ID'";
-
-   mysql_query($delmessage) or die("Could not delete message");
+   mysqli_query($delmessage) or die("Could not delete message");
 
    print "Message Deleted.";
    print "<br /><a href='index.php'>back</a>";
+} else {
 
-
-
-}
-
-else
-
-{
-
-   $ID=$_GET['ID'];
+   $ID = $_GET['ID'];
 
    print "<form action='delete.php' method='post'>";
 
@@ -31,7 +22,4 @@ else
    print "<input type='hidden' name='ID' value='$ID'>";
 
    print "<input type='submit' name='submit' value='Delete'></form>";
-
 }
-
-?>

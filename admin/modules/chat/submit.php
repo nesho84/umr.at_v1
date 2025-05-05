@@ -4,72 +4,44 @@ include '../../includes/session.php';
 include '../../../_library/dbconnect.php';
 
 
-if(isset($_POST['submit'])) //if submit button push has been detected
+if (isset($_POST['submit'])) //if submit button push has been detected
 
 {
 
-   $message=$_POST['message'];
+   $message = $_POST['message'];
 
-   $name=$_SESSION['name'];
+   $name = $_SESSION['name'];
 
-   if(strlen($message)<1)
-
-   {
+   if (strlen($message) < 1) {
 
       print "You did not input a message";
-
-   }
-
-   else if(strlen($name)<1)
-
-   {
+   } else if (strlen($name) < 1) {
 
       print "You did not enter a name, please try again.";
+   } else {
 
-   }
+      $message = strip_tags($message);
 
-   else
+      $IP = $_SERVER["REMOTE_ADDR"]; //grabs poster's IP
 
-   {
+      $checkforbanned = "SELECT IP from ipbans where IP='$IP'";
 
-      $message=strip_tags($message);
+      $checkforbanned2 = mysqli_query(DBLINK, $checkforbanned) or die("Could not check for banned IPS");
 
-      $IP=$_SERVER["REMOTE_ADDR"]; //grabs poster's IP
-
-      $checkforbanned="SELECT IP from ipbans where IP='$IP'";
-
-      $checkforbanned2=mysql_query($checkforbanned) or die("Could not check for banned IPS");
-
-      if(mysql_num_rows($checkforbanned2)>0) //IP is in the banned list
+      if (MYSQLI_NUM_rows($checkforbanned2) > 0) //IP is in the banned list
 
       {
 
          print "You IP is banned from posting.";
-
-      }
-
-      else
-
-      {
+      } else {
 
          $thedate = date("U"); //grab date and time of the post
 
-         $insertmessage="INSERT into chatmessages (name,IP,postime,message) values('$name','$IP','$thedate','$message')";
+         $insertmessage = "INSERT into chatmessages (name,IP,postime,message) values('$name','$IP','$thedate','$message')";
 
-         mysql_query($insertmessage) or die("Could not insert message");
-
-    
-
-
-
+         mysqli_query(DBLINK, $insertmessage) or die("Could not insert message");
       }
-
    }
-
- 
-
-      
-
 }
 
 print "<form action='submit.php' method='post' name='form'>";
@@ -105,5 +77,3 @@ print "}\n";
 print "</script>\n";
 
 print "<br><br>";
-
-?> 
