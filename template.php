@@ -106,7 +106,7 @@ function do_header()
 
 function privat_leftpart($active, $expand)
 {
-	require_once 'includes/privat_leftpart.php';
+	require_once __DIR__ . '/privat/includes/privat_leftpart.php';
 }
 
 
@@ -230,7 +230,7 @@ function leftpart($active, $expand)
 
 						<div id="dotted">&nbsp;</div>
 
-						<a href="<?php echo SITE_URL; ?>/ISO-9001">
+						<a href="<?php echo SITE_URL; ?>/ISO-9001.pdf" target="_blank">
 							<div id="ad120x600">
 								<img src="<?php echo IMAGE_URL ?>/ISO-9001.png" width="155px" height="150px" style="border:1px solid #ccc;" />
 							</div>

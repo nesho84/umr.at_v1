@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2025 at 12:14 AM
+-- Generation Time: May 06, 2025 at 01:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -190,6 +190,19 @@ CREATE TABLE `subcategory` (
   `maincategory_name` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_online`
+--
+
+CREATE TABLE `user_online` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `session` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -255,6 +268,13 @@ ALTER TABLE `subcategory`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indexes for table `user_online`
+--
+ALTER TABLE `user_online`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `session` (`session`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -317,6 +337,12 @@ ALTER TABLE `news`
 --
 ALTER TABLE `subcategory`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `user_online`
+--
+ALTER TABLE `user_online`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

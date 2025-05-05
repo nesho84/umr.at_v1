@@ -26,14 +26,18 @@
 		padding: 0px;
 	}
 </style>
+
 <?php
+//connect to database
+require_once dirname(__DIR__, 2) . '/_library/dbconnect.php';
 //Counting numbers of news
-$count1 = mysqli_query("SELECT * FROM news order by date");
+$count1 = mysqli_query(DBLINK, "SELECT * FROM news order by date");
 if (!$count1) {
-	die("Query Failed: " . mysqli_error($con));
+	die("Query Failed: " . mysqli_error(DBLINK));
 }
 $num_rows = MYSQLI_NUM_rows($count1);
 ?>
+
 <div id="content"> <!-- START CONTENT -->
 	<div id="sidebar">
 		<div id="updates" class="boxed">
@@ -51,7 +55,7 @@ $num_rows = MYSQLI_NUM_rows($count1);
 						<?php
 						//Defining Members Level
 						$username = $_SESSION['username'];
-						$qry = mysqli_query("SELECT * FROM members where username='$username'");
+						$qry = mysqli_query(DBLINK, "SELECT * FROM members where username='$username'");
 						$row = mysqli_fetch_array($qry);
 						$members_level = $row['members_level'];
 						if ($members_level == 'mitarbeiter' || $members_level == 'vorarbeiter') {
@@ -76,13 +80,16 @@ $num_rows = MYSQLI_NUM_rows($count1);
 					<ul>
 						<span style="color: #A5AAAB">
 							Anmeldung ist notwendig...<br />
-							Sie m�ssen sich zuerst anmelden, um alle Funktionen nutzen zu k�nnen.
+							Sie müssen sich zuerst anmelden, um alle Funktionen nutzen zu können.
 						</span>
-					</ul> <br><br><br><br><br><br><br><br><br><br><br><br>
+					</ul>
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+
 					<p align="justify" style="color: green;">
-						Wenn Sie Fragen, Feedback f�r den Website haben oder einen Fehler auf unserer Website gefunden?<br /><br />
-						Bitte kontaktieren Sie den Administrator<a href="mailto:ademi.neshat@gmail.com?Subject=Hilfe!" style="text-decoration:underline; color: #0041A3;">hier</a>.
+						Wenn Sie Fragen, Feedback zur Website haben oder einen Fehler auf unserer Website gefunden haben:<br /><br />
+						Bitte kontaktieren Sie den Administrator <a href="mailto:ademi.neshat@gmail.com?Subject=Hilfe!" style="text-decoration:underline; color: #0041A3;">hier</a>.
 					</p>
+
 				<?php
 				} //if there is a correct session END
 				include 'user_online.php';

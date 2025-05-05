@@ -1,4 +1,6 @@
 <?php
+die('This function is deprecated. Please use the new login system. <a href=javascript:history.go(-1)>[Back]</a>');
+
 if (!$_POST) {
     echo 'NNWEBS says: Page cannot accessed directly!';
     die;
@@ -6,9 +8,9 @@ if (!$_POST) {
 include '../../_library/dbconnect.php';
 //CHECK IF THE USER VALID begins
 if (isset($_POST['u_name']) && !empty($_POST['u_name'])) {
-    $uname = (mysql_real_escape_string($_POST['u_name']));
-    $pass = (mysql_real_escape_string($_POST['pass']));
-    $qry = mysqli_query("SELECT * FROM members WHERE username='$uname' AND password='$pass'", $con);
+    $uname = (htmlspecialchars($_POST['u_name']));
+    $pass = (htmlspecialchars($_POST['pass']));
+    $qry = mysqli_query($con, "SELECT * FROM members WHERE username='$uname' AND password='$pass'");
     if (!$qry) {
         die("Query Failed: " . mysqli_error($con));
     }

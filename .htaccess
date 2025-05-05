@@ -9,4 +9,4 @@ RewriteRule ^sitemap/$ sitemap.php [L,QSA]
 
 RewriteRule ^personal/$ UMR_Personalmanagement.pdf [L,QSA]
 
-RewriteRule ^ISO-9001/$ ISO-9001.pdf [L,QSA]
+RewriteRule ^login$ privat/login.php [L,QSA]

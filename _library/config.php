@@ -22,9 +22,6 @@ $admRoot = $_SERVER['DOCUMENT_ROOT'] . '/admin/';
 defined('SITE_URL')
   or define('SITE_URL', 'http://localhost/umr.at_v1');
 
-defined('ADM_URL')
-  or define('ADM_URL', SITE_URL . '/admin/');
-
 defined('IMAGE_URL')
   or define('IMAGE_URL', SITE_URL . '/_images');
 
