@@ -230,7 +230,7 @@ function leftpart($active, $expand)
 
 						<div id="dotted">&nbsp;</div>
 
-						<a href="<?php echo SITE_URL; ?>ISO-9001">
+						<a href="<?php echo SITE_URL; ?>/ISO-9001">
 							<div id="ad120x600">
 								<img src="<?php echo IMAGE_URL ?>/ISO-9001.png" width="155px" height="150px" style="border:1px solid #ccc;" />
 							</div>
